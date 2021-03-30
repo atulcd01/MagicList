@@ -1,1 +1,1 @@
-# MagicList
+# MagicList Mobile app
