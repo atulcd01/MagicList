@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Security-Policy"
+	default-src 'self'; connect-src *; style-src 'self' data:
+	chrome-extension-resource: 'unsafe-inline'; img-src 'self' data:
+	chrome-extension-resource:; frame-src 'self' data:
+	chrome-extension-resource:; font-src 'self' data:
+	chrome-extension-resource:; media-src*;>
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+</head>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-sanitize.js"></script>
+
+<style type="text/css">
+@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak,
+	.x-ng-cloak {
+	display: none;
+}
+
+ng\:form {
+	display: block;
+}
+</style>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-3.2.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/angucomplete-alt.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/zingchart.min.js"></script>
+<style>
+.localactive {
+	color: #fff;
+	background-color: #003580;
+	border-color: black;
+}
+
+a.localactive:focus, a.localactive:hover {
+	color: #fff;
+	background-color: #003580 !important;
+	border-color: black;
+}
+
+
+#myBtn {
+	position: fixed;
+	/* Fixed/sticky position */
+	bottom: 80px;
+	/* Place the button at the bottom of the page */
+	right: 0px;
+	/* Place the button 30px from the right */
+	z-index: 99;
+	/* Make sure it does not overlap */
+	border: none;
+	/* Remove borders */
+	outline: none;
+	/* Remove outline */
+	background-color: #0069d9;
+	/* Set a background color */
+	color: white;
+	/* Text color */
+	cursor: pointer;
+	/* Add a mouse pointer on hover */
+	padding: 15px;
+	/* Some padding */
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+#createBtn {
+	position: absolute;
+	/* Fixed/sticky position */
+	bottom: 10px;
+	/* Place the button at the bottom of the page */
+	right: 10px;
+	/* Place the button 30px from the right */
+	z-index: 99;
+	/* Make sure it does not overlap */
+	border: none;
+	/* Remove borders */
+	outline: none;
+	/* Remove outline */
+	background-color: #0069d9;
+	/* Set a background color */
+	color: white;
+	/* Text color */
+	cursor: pointer;
+	/* Add a mouse pointer on hover */
+	padding: 5px;
+	/* Some padding */
+
+}
+#myBtn:hover {
+	background-color: #0069d9;
+	/* Add a dark-grey background on hover */
+}
+
+.enddiv {
+	width: 100%;
+	height: 0px;
+	/*  border: 1px solid #4CAF50; */
+}
+
+.superenddiv {
+	width: 100%;
+	height: 80px;
+	/*  border: 1px solid #4CAF50; */
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+	color: white;
+	background-color: #003580;
+	/*  border: 1px solid #dae0e5; */
+	font-weight: bold;
+}
+
+.nav-pills .nav-link.deactive, .nav-pills .show>.nav-link {
+	color: #003580;
+	background-color: #f8f9fa;
+	border: 1px solid #dae0e5;
+	font-weight: bold;
+}
+
+.nav-pills .nav-link {
+	border-radius: 0rem;
+	border-color: red;
+}
+
+.loader {
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+	width: 120px;
+	height: 120px;
+	-webkit-animation: spin 2s linear infinite;
+	/* Safari */
+	animation: spin 2s linear infinite;
+	display: inline-block;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+/* Safari */
+@
+-webkit-keyframes spin { 0% {
+	-webkit-transform: rotate(0deg);
+}
+
+100%
+{
+-webkit-transform
+:
+
+rotate
+(360deg);
+
+
+}
+}
+@
+keyframes spin { 0% {
+	transform: rotate(0deg);
+}
+100%
+{
+transform
+:
+
+rotate
+(360deg);
+
+
+}
+}
+
+
+
+.container1 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form#ios input[type=password]{
+    height: 50px;
+    width: 40px;
+    text-align: center;
+    font-size: 2em;
+    border: 1px solid #000;
+}
+
+
+
+html,
+body {
+    height: 100%;
+    /* background-color:#003580; */
+}
+input.asLabel
+   {
+
+   }
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 150px;
+    align-items: center;
+    background-color:#003580;
+}
+
+form#ios input[type=password]{
+    height: 50px;
+    width: 40px;
+    text-align: center;
+    font-size: 2em;
+    border:0px;
+     background-color: #ffffff;
+
+
+}
+
+p.thicker {
+    font-weight: 1000;
+    letter-spacing: 0.0025em;
+    font-size:25px;
+    font-family: 'Raleway', sans-serif;
+     font-family: 'Georgia', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#fff;
+    text-align:center;
+}
+
+
+
+ a.shopawhite{
+ color:white;
+}
+
+
+
+.well {
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width:100%;
+    min-height: 10px;
+    padding: 9px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+
+     font-family: 'Raleway', sans-serif;
+     font-family: 'Georgia', "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-size: 16px;
+     line-height: 23px;
+     color: #111;
+}
+
+.underline {
+    text-decoration: underline;
+    -webkit-text-decoration-color: rgba(0,0,0,.125); /* Safari */
+    text-decoration-color: rgba(0,0,0,.125);
+    color: #495057;
+}
+
+ preview-box{
+    background-color: #007bff;;
+    width: 600px;
+    padding: 2px;
+    margin: 25px;
+
+}
+table, th, td {
+  margin-top:2%;
+  padding:5px;
+}
+</style>
+
+</style>
+
+
+<body ng-app="Application" id="app" ng-controller="Controller" ng-cloak
+	class="ng-scope">
+
+ 	 <div ng-show="loginflg" class="container">
+	  	<form id="ios">
+			<p class="thicker">SuperDay</p>
+			<p style="text-align: center;">
+				<input type="password" class="asLabel" maxlength=1 id="1"
+					onkeyup="moveOnMax(this,'a')" ng-model="a" /> <input
+					type="password" class="asLabel" maxlength=1 id="a"
+					onkeyup="moveOnMax(this,'b')" ng-model="b" /> <input
+					type="password" class="asLabel" maxlength=1 id="b"
+					onkeyup="moveOnMax(this,'c')" ng-model="c" /> <input
+					type="password" class="asLabel" onkeyup="confirmPass(this,'1')"
+					maxlength=1 id="c" ng-model="d" />
+			</p>
+
+
+			<div class="well">
+
+				<p>
+					<strong>Note :</strong>If you are first time login remember the pin
+					password you entered. <span class="tc-external"></span>
+				</p>
+
+			</div>
+
+		</form>
+
+
+	</div>
+	<!-- ITEMS START HERE -->
+
+ 	<div ng-show="!loginflg" >
+
+
+
+	<style>
+
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(255,255,255, 1);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.overlay3 {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+  	background-color: rgba(0,0,0, 0.9);
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.overlay-content {
+  position: relative;
+  top: 0%;
+  left:10px;
+  width: 100%;
+  text-align: left;
+  margin-top: 0px;
+}
+
+.overlay a {
+ 	padding: 1px;
+  text-decoration: none;
+  font-size: 26px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+	text-transform: capitalize;
+}
+
+.overlay a:hover, .overlay a:focus {
+  /* color: #f1f1f1; */
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 9px;
+  right: 15px;
+  font-size: 13px;
+	font-weight:bolder;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+
+.fixed-content {        //comments showing what I replaced.
+    left:0;             //top: 0;
+    right:0;            //bottom:0;
+    width:100%;
+    position:fixed;
+    overflow-y:hidden;  //overflow-y:scroll;
+    overflow-x:auto;    //overflow-x:hidden;
+}
+.fixed-top-self {
+    position: fixed;
+    /* top: 0; */
+    /* right: 0; */
+    padding-left: 20px;
+    /* z-index: 1030; */
+}
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:5px !important; padding-bottom:0 !important;
+    height: 20px;
+}
+.navbar {min-height:30px !important;}
+</style>
+</head>
+<body>
+<div id="myCanvasNav" class="overlay3" onclick="closeNav()" style="width: 0%; opacity: 0.5;"></div>
+<div id="myNav" class="overlay" >
+  <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+	<div  class="position-sticky" style=" text-align:center;">
+			<form id="createlistfrm" data-ng-submit="addItemtoList()" class="form-inline" name="listForm" ng-show="showCreateList">
+				<table class="table table-borderless" style="margin-bottom: 0; margin-top: 0;">
+					<tr>
+					<td colspan="2" ><input type="text" maxlength="80"   class="form-control" name="name"
+						data-ng-model="listname" placeholder="List Name" required/></td>
+					<td><div   ng-click="addfield()" >
+							<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+					</div></td>
+				</tr>
+
+
+				<tr class="form-group" ng-repeat="field in listfields track by $index" >
+					<td ><input type="text" maxlength="80"  class="form-control" name="fieldname"
+						data-ng-model="field.name" placeholder="Field Name" required/></td>
+						<td >	<select class="form-control" id="sel1" name="fieldtype" data-ng-model="field.type" placeholder="Field type" required>
+								    <option>text</option>
+								    <option>number</option>
+								    <option>date</option>
+								  </select></td>
+
+						<td>	<div  class="" ng-click="deletefield(field.id)" >
+							<!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/><path d="M0 0h24v24H0z" fill="none"/></svg> -->
+							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
+						</div></td>
+					</tr>
+						</table>
+
+
+
+
+				<div class="col-sm-10" style="text-align: center;">
+					<button type="submit" class="btn btn-primary btn-sm" ng-disabled="listForm.$invalid"><b>Add</b></button>
+					<button type="button" ng-click="showCreateList=!showCreateList" class="btn btn-primary btn-sm" ><b>Cancel</b></button>
+				</div>
+			</form>
+
+			<button  class="btn btn-primary " ng-click="showCreateList=!showCreateList" ng-show="!showCreateList">
+					<b>Create List</b>
+				</button>
+	</div>
+
+  <div class="overlay-content" style=' overflow-y: scroll;width:95%;'>
+
+     <ul class=" navbar-nav ml-auto ">
+				<li class="nav-item active" ng-repeat="items in listdetails track by $index">
+					<div class="">
+						<span ng-click="removeItemfromList(items.name)" style="font-size:10px;text-align:right;"   class=" float-right mt-2">
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
+						</span>
+						<a class="nav-link" href="#" ng-click="showList(items);" >{{items.name}}</a>
+
+					</div>
+			</li>
+    </ul>
+  </div>
+
+</div>
+
+<!--top panel-->
+<div  style='height:25%'>
+	<div class="card" style="width: 100%;border: none;">
+	<span style="font-size:30px;color:grey;font-weight:bold;top: 15px;" class='fixed-top-self' onclick="openNav()">&#9776; </span>
+<span style="font-size:30px;color:black;font-weight:bold;top: 15px;right:60px;text-transform:capitalize;" class='fixed-top-self'>{{selectedlist.name}} </span>
+
+	<img class="card-img-top" src="img/iconbar.jpg" alt="Card image cap">
+	</div>
+</div>
+
+
+
+<!-- this is old code from here-->
+	<div  class="fixed-content" style="height:80%; overflow-y: scroll;">
+
+		<table class="table table-borderless " style="margin-bottom: 0; margin-top: 0;">
+			    <tr  id='{{$index+1}}_{{selectedlist.name}}' onclick="shoppingfocus(this)"
+		        	ng-repeat="x in selectedlist.insidelist track by $index" class="border-bottom" >
+
+		     <td style="width:5%"> {{$index + 1}}. </td>
+				 <td ng-repeat="z in x.value track by $index" style="text-transform: capitalize;font-size:20px;">{{selectedlist.fields[$index].type =="date" ?  (z| date :"d MMMM yy") : z}} </td>
+		 		<td style="width:5%"><span ng-click="removeItem($index)" style="cursor: pointer;" class="">
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>
+				</span></td>
+
+				</tr>
+
+		</table>
+
+				<!--this is bottom of list-->
+				<div class=" fixed-bottom">
+						<div id="0_shop" class="title">
+							<p class="text-danger">{{errortext}}</p>
+						</div>
+						<div class="input-group" >
+							<input
+							type="{{y.type}}" ng-model="value[$index]"" class="form-control"
+							ng-repeat="y in selectedlist.fields track by $index"
+								placeholder="{{y.name}} / {{y.type}}" aria-label=""
+								aria-describedby="basic-addon1" >
+								<div class="input-group-append">
+									<button class="btn btn-primary" ng-click="addItem()" ng-show="selectedlist.insidelist" type="button">Add</button>
+								</div>
+						</div>
+				</div>
+
+
+<!-- old code start here mind the div -->
+<!--<p style="margin-top:0; margin-bottom:0; line-height:3.5"><br /></p>-->
+
+		<!-- REPORT ENDS HERE -->
+<!--<script type="text/javascript" src="cordova.js"></script> -->
+<script src="js/index.js"></script>
+<script src="js/dayplan.js"></script>
+
+ </div>
+</body>
+</html>
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "75%";
+  document.getElementById("myCanvasNav").style.width = "100%";
+}
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  document.getElementById("myCanvasNav").style.width = "0%";
+}
+</script>
